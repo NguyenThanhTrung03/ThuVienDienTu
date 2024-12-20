@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link href="/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+  
   <meta name="robots" content="noodp,index,follow" />
   <title>
     Thư viện điện tử Cô Tô | thuviendientuCoTo.com | Website chính thức
@@ -61,6 +61,12 @@
     span.feeship {
       font-size: 0
     }
+    .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    .navbar{
+      
+    }
+}
   </style>
 
 
@@ -197,7 +203,8 @@
                     s&#xE1;ch
                     Chi
                     b&#x1ED9;
-                  </a></li><a class="category__show__all d-flex align-items-center justify-content-center"
+                  </a></li>
+                <a class="category__show__all d-flex align-items-center justify-content-center"
                   href=/tat-ca-danh-muc>
                   <i class="fas fa-bars"></i>Xem
                   tất cả
@@ -243,17 +250,42 @@
                 <p>Hotline</p><a href=tel:02466635678>0962962542</a>
               </div>
             </a>
-            <div class=line></div>
-            <!-- <a href=/checkout/cart class="header-icon cart">
-              <div class="button__notification cart-number">1</div><img src=content/suthat/assets/img/cart.svg>
-            </a>  -->
-            <a href=/customer/purchased-book class="header-icon bookmark"><img
-                src=content/suthat/assets/img/bookmark.svg></a>
-            <div class="header__button header-icon account"><a href=/customer/login title="Đăng nhập">
-                <img src=content/suthat/assets/img/account.svg width=16 height=17>
-              </a></div>
           </div>
         </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tài liệu số
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Tài liệu về Cô Tô</a></li>
+                <li><a class="dropdown-item" href="#">Sách Bác Hồ</a></li>
+                <li><a class="dropdown-item" href="#">Sách về biển</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tác giả</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        </nav>
       </div>
     </div>
     <div class=section__header-mobile>
@@ -463,7 +495,7 @@
                       <a href="#"
                         title='Sách mở ra trước mắt ta những chân trời mới'><img
                           src="img/cropped-banner.jpg"
-                          alt='Sách mở ra trước mắt ta những chân trời mới' /></a>
+                          alt='Sách mở ra trước mắt ta những chân trời mới'/></a>
                     </div>
               </div>
 
@@ -3238,7 +3270,7 @@
     </section>
     <section class=footer-copyright><span style=text-align:center>Copyright
         ©
-        2024
+        <span id="currentYear"></span>
         -
         Thư viện điện tử Cô Tô.
         All
@@ -3316,6 +3348,8 @@
   <script src="lib/multi-dropdown/jquery.dropdown.min.js"></script>
   <script src="content/assets/js/site.js?v=1.2.4"></script>
   <script src="content/assets/js/main.js?v=1.2.4"></script>
+  
+
 </body>
 
 </html>

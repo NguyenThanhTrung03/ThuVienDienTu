@@ -1,631 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Navbar</title>
+    <!-- Link Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Căn chỉnh logo */
+      .header__logo img {
+        height: 50px;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>University Header</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      /* Giãn cách các mục menu */
+      .navbar-nav .nav-item {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 10px;
-}
+      /* Căn giữa form tìm kiếm */
+      .menu__search {
+        max-width: 400px;
+        margin-left: auto;
+      }
 
-.header {
-  display: flex;
-  justify-content: center; /* Căn đều hai bên */
-  align-items: center;
-  background-color: #e6f4ff;
-  padding: 10px 20px;
-}
+      .search__input {
+        flex-grow: 1;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+      }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin-right: 60px;
-}
+      .search__submit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
 
-.logo {
-  height: 80px;
-  margin-right: 10px;
-}
+      .search__submit:hover {
+        background-color: #0056b3;
+      }
 
-.university-name h1 {
-  font-size: 22px;
-  color: #1d5ba4;
-  font-weight: bold;
-}
-
-.university-name h2 {
-  font-size: 16px;
-  color: #1d5ba4;
-  font-weight: normal;
-}
-
-.right-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-left: 60px;
-}
-
-.login-search-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.login {
-  color: #1d5ba4;
-  margin-right: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.search {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.flag {
-  height: 20px;
-}
-
-.motto {
-  font-size: 14px;
-  color: #1d5ba4;
-}
-
-/*  navbar */
-.navbar {
-  background-color: #1d5ba4;
-  padding: 10px;
-}
-
-.navbar2 {
-  margin-top: 20px;
-}
-
-.nav-list {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-}
-
-.nav-item a {
-  margin-right: 20px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-.img-slider {
-  width: 1250px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  margin: 0 auto;
-}
-
-.news-header{
-  padding: 0 130px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.news h2 {
-  border-bottom: 3px solid #0f75bc;
-  color: #024da1;
-  font-size: 25px;
-  line-height: 52px;
-  /* padding: 5px 0 15px; */
-  text-transform: uppercase;
-}
-
-.news article {
-  display: flex;
-  align-items: center;
-  
-}
-
-/* news */
-
-.news-grid {
-  margin-top: 10px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.news-item {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-}
-
-.news-img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.news-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #00448b;
-  margin: 10px 0;
-}
-
-.news-desc {
-  font-size: 14px;
-  color: #333;
-  list-style-type: none;
-  margin-top: 10px;
-  list-style-type: disc;
-  margin-left: 10px;
-}
-
-.news-desc li {
-  margin-bottom: 5px;
-}
-  </style>
-</head>
-
-<body>
-  <header class="header">
-    <div class="logo-container">
-      <img src="https://www.thongtintuyensinh.vn/upload/mo-diachat_68098.jpg" alt="Logo" class="logo" />
-      <div class="university-name">
-        <h1>TRƯỜNG ĐẠI HỌC MỎ - ĐỊA CHẤT</h1>
-        <h2>HANOI UNIVERSITY OF MINING AND GEOLOGY</h2>
+      /* Căn giữa toàn bộ nội dung navbar */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="header__logo">
+          <a href="index.html"><img src="img/icon-vietnam.png" alt="Logo" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tài liệu số
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Tài liệu về Cô Tô</a></li>
+                <li><a class="dropdown-item" href="#">Sách Bác Hồ</a></li>
+                <li><a class="dropdown-item" href="#">Sách về biển</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tác giả</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        <form
+          class="d-flex menu__search"
+          onsubmit="return sumitSearch(this,'#frmBook')"
+          id="frmBook"
+        >
+          <input
+            class="search__input"
+            placeholder="Tìm sách, tác giả, sản phẩm mong muốn..."
+            name="keyword"
+            id="keyword"
+          />
+          <button class="search__submit">
+            <i class="fas fa-search mr-2"></i><span>Tìm kiếm</span>
+          </button>
+        </form>
       </div>
-    </div>
-    <div class="right-container">
-      <div class="login-search-container">
-        <div class="login"><i class="fas fa-user"></i> Đăng nhập</div>
-        <input type="text" class="search" placeholder="Tìm kiếm..." />
-        <img src="https://humg.edu.vn/Publishing_Resources/web/images/en-EN.png" alt="English Flag" class="flag" />
-      </div>
-      <div class="motto">
-        <strong>Đoàn kết - Liêm chính - Trách nhiệm - Sáng tạo - Chất lượng</strong>
-      </div>
-    </div>
-  </header>
-  <div class="navbar">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="#"><i class="fas fa-home"></i>HOME</a>
-      </li>
-      <li class="nav-item"><a href="#">GIỚI THIỆU</a></li>
-      <li class="nav-item"><a href="#">TUYỂN SINH</a></li>
-      <li class="nav-item"><a href="#">TIN TỨC</a></li>
-      <li class="nav-item"><a href="#">ĐÀO TẠO - ĐBCLGD</a></li>
-      <li class="nav-item"><a href="#">KHOA HỌC - CÔNG NGHỆ</a></li>
-      <li class="nav-item"><a href="#">HỢP TÁC - ĐỐI NGOẠI</a></li>
-      <li class="nav-item"><a href="#">SINH VIÊN</a></li>
-      <li class="nav-item"><a href="#">HĐ GIÁO SƯ CƠ SỞ</a></li>
-    </ul>
-  </div>
+    </nav>
 
-  <div class="img-slide">
-    <img class="img-slider" src="./img/tuyensinh.jpg" alt="" />
-  </div>
-
-  <div class="navbar navbar2">
-    <ul class="nav-list">
-      <li class="nav-item"><a href="#">WEBSITE ĐẢNG BỘ</a></li>
-      <li class="nav-item"><a href="#">BỘ PHẬN MỘT CỬA</a></li>
-      <li class="nav-item"><a href="#">E - OFFICE</a></li>
-      <li class="nav-item"><a href="#">THƯ ĐIỆN TỬ</a></li>
-      <li class="nav-item"><a href="#">LỊCH TIẾP CÔNG DÂN</a></li>
-      <li class="nav-item"><a href="#">TẠP CHÍ KHOA HỌC</a></li>
-    </ul>
-  </div>
-
-  <div class="news">
-    <div class="news-header">
-      <h2>Tin tức</h2>
-      <a style="text-decoration: none" href="">> Xem thêm</a>
-    </div>
-  </div>
-
-  <div class="news-grid"></div>
-  <div class="news-item">
-    <img src="./img/eramus.jpg" alt="News Image 1" class="news-img">
-    <h3 class="news-title">GS.TS Trần Thanh Hải – Hiệu trưởng Trường Đại học Mỏ - Địa chất cùng Lãnh đạo Tỉnh Lào Cai đi
-      khảo sát thực địa chọn phương án bố trí tái định cư cho các hộ dân Làng Nủ</h3>
-    <ul class="news-desc">
-      <li>Trường Đại học Mỏ - Địa chất đồng tổ chức Hội nghị quốc tế thường niên...</li>
-      <li>Trường Đại học Mỏ - Địa chất giao lưu và chia sẻ kinh nghiệm với Đại học FPT Đà Nẵng</li>
-      <li>Khoa Mỏ, Trường Đại học Mỏ - Địa chất...</li>
-      <li>Trường Đại học Mỏ - Địa chất chung tay hỗ trợ Giáo dục vùng bị bão lũ</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <img src="./img/eramus.jpg" alt="News Image 2" class="news-img">
-    <h3 class="news-title">Hội thảo cấp Khoa về Xây dựng chương trình đào tạo trình độ đại học Ngành Ngôn ngữ Trung Quốc
-    </h3>
-    <ul class="news-desc">
-      <li>Trường Đại học Mỏ - Địa chất tổ chức Lễ khai giảng năm học 2023 - 2024</li>
-      <li>Lễ Khai giảng khóa đào tạo Thạc sĩ K46 và Tiến sĩ K41 và K42</li>
-      <li>Lễ khai giảng khóa đào tạo Tiến sĩ 2022 – 2026 (K44)</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <img src="./img/eramus.jpg" alt="News Image 3" class="news-img">
-    <h3 class="news-title">Nghiệm thu cấp Bộ đề tài NCKH cấp Bộ mã số B2022-MDA-09 do PGS.TS Lê Đức Tịnh làm chủ nhiệm
-    </h3>
-    <ul class="news-desc">
-      <li>Nghiệm thu cấp Bộ đề tài NCKH...</li>
-      <li>Nghiệm thu cấp Bộ đề tài KH&CN cấp Bộ...</li>
-      <li>Nghiệm thu cấp Bộ đề tài NCKH cấp Bộ mã số...</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <img src="./img/eramus.jpg" alt="News Image 4" class="news-img">
-    <h3 class="news-title">Hội nghị quốc tế ANGEL Erasmus+ (AIC) tại Đại học Công nghệ Malaysia</h3>
-    <ul class="news-desc">
-      <li>Trường Đại học Mỏ - Địa chất và Trường Đại học Cần Thơ phối hợp tổ chức...</li>
-      <li>Trường Đại học Mỏ - Địa chất tham gia...</li>
-      <li>Hiệu trưởng Trường Đại học Mỏ - Địa chất thăm và làm việc tại Đại học UC Davis, Hoa Kỳ</li>
-    </ul>
-  </div>
-  </div>
-</body>
-
+    <!-- Link Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
-<div class="owl-stage-outer">
-  <div class="owl-stage"
-      style="transform: translate3d(0px, 0px, 0px); transition: all; width: 2404px;">
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/nguyen-chi-thanh-tieu-su-b12961.html"
-                  title="Nguyễn Chí Thanh - Tiểu sử" onclick="tracking(12961)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/11/13/image-20241113174357214.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/11/13/image-20241113174357214.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Nguyễn Chí
-                              Thanh - Tiểu sử</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="Chương trình sưu tầm tài liệu, viết tiểu sử các đồng chí lãnh đạo tiền bối tiêu biểu của Đảng và cách mạng Việt Nam">
-                              Chương trình sưu tầm...</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              42.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Nhat-ky-cua-mot-bo-truong-Tap-I-1946-1948-b12828.html"
-                  title="Nhật ký của một bộ trưởng. Tập I (1946-1948)"
-                  onclick="tracking(12828)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/6/12/image-20240612170945689.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/6/12/image-20240612170945689.jpg');opacity:1">
-                  </div><span
-                      class="item-img__sale d-flex align-items-center justify-content-center">-20%</span>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Nhật ký của một
-                              bộ trưởng. Tập I (1946-1948)</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13" title="Lê Văn Hiến">Lê Văn Hiến</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              134.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Ho-Chi-Minh-Dinh-cao-truyen-thong-Nhan-Tri-Dung-Viet-Nam-b12786.html"
-                  title="Hồ Chí Minh - Đỉnh cao truyền thống Nhân Trí Dũng Việt Nam"
-                  onclick="tracking(12786)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/6/3/image-20240603171411109.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/6/3/image-20240603171411109.jpg');opacity:1">
-                  </div><span
-                      class="item-img__sale d-flex align-items-center justify-content-center">-20%</span>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Hồ Chí Minh -
-                              Đỉnh cao truyền thống Nhân Trí Dũng Việt Nam</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="NXB Chính Trị Quốc Gia Sự Thật">NXB Chính Trị
-                              Quốc Gia...</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              42.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Ho-Chi-Minh-va-Dang-Cong-san-Viet-Nam-ve-neu-guong-va-trach-nhiem-neu-guong-b12695.html"
-                  title="Hồ Chí Minh và Đảng Cộng sản Việt Nam về nêu gương và trách nhiệm nêu gương"
-                  onclick="tracking(12695)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/5/22/image-20240522104432897.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/5/22/image-20240522104432897.jpg');opacity:1">
-                  </div><span
-                      class="item-img__sale d-flex align-items-center justify-content-center">-20%</span>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Hồ Chí Minh và
-                              Đảng Cộng sản Việt Nam về nêu gương và trách nhiệm
-                              nêu gương</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="Đinh Ái Minh (sưu tầm, tuyển chọn)">Đinh Ái
-                              Minh (sưu tầm,...</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              12.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Hoc-Chu-tich-Ho-Chi-Minh-Chung-ta-hoc-gi-b12280.html"
-                  title="Học Chủ tịch Hồ Chí Minh - Chúng ta học gì
-" onclick="tracking(12280)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/5/21/image-20240521180405518.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/5/21/image-20240521180405518.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Học Chủ tịch Hồ
-                              Chí Minh - Chúng ta học gì
-                          </h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13" title="Phạm Văn Đồng">Phạm Văn Đồng
-                          </p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              14.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item active" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Chung-nhan-lich-su-b12609.html"
-                  title="Chứng nhân lịch sử" onclick="tracking(12609)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/5/10/image-20240510115431914.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/5/10/image-20240510115431914.jpg');opacity:1">
-                  </div><span
-                      class="item-img__sale d-flex align-items-center justify-content-center">-20%</span>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Chứng nhân lịch
-                              sử</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13" title="GS.TS. Tạ Ngọc Tấn">GS.TS. Tạ
-                              Ngọc Tấn</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              73.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/Muu-luoc-Mao-Trach-Dong-b12608.html"
-                  title="Mưu lược Mao Trạch Đông" onclick="tracking(12608)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/5/9/image-20240509174937558.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/5/9/image-20240509174937558.jpg');opacity:1">
-                  </div><span
-                      class="item-img__sale d-flex align-items-center justify-content-center">-20%</span>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Mưu lược Mao
-                              Trạch Đông</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13" title="Tiêu Thi Mỹ">Tiêu Thi Mỹ</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              101.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/vo-nguyen-giap-vi-tuong-cua-nhan-dan-song-ngu-viet-arap-ملخص-فو-نجوين-جياب-جنرال-الشعب،-سيبقى-دائماً-محفوظاً-في-تاريخ-الأمة-b12587.html"
-                  title="Võ Nguyên Giáp - Vị tướng của nhân dân (Song ngữ Việt - ARập) ملخص فو نجوين جياب جنرال الشعب، سيبقى دائماً محفوظاً في تاريخ الأمة"
-                  onclick="tracking(12587)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/4/18/image-20240418182403385.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/4/18/image-20240418182403385.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Võ Nguyên Giáp
-                              - Vị tướng của nhân dân (Song ngữ Việt - ARập) ملخص
-                              فو نجوين جياب جنرال الشعب، سيبقى دائماً محفوظاً في
-                              تاريخ الأمة</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="&nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;">
-                              &nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              84.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/vo-nguyen-giap-vi-tuong-cua-nhan-dan武元甲人民的将军-song-ngu-viet-trung-b12585.html"
-                  title="Võ Nguyên Giáp - Vị tướng của nhân dân/武元甲人民的将军 (Song ngữ Việt - Trung)"
-                  onclick="tracking(12585)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417181849624.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417181849624.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Võ Nguyên Giáp
-                              - Vị tướng của nhân dân/武元甲人民的将军 (Song ngữ Việt -
-                              Trung)</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="&nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;">
-                              &nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              83.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/vo-nguyen-giap-vi-tuong-cua-nhan-dan-vo-nguyen-giap-general-du-peuple-song-ngu-viet-phap-b12584.html"
-                  title="Võ Nguyên Giáp - Vị tướng của nhân dân / Vo Nguyên Giap - Général du Peuple (Song ngữ Việt - Pháp) "
-                  onclick="tracking(12584)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417180804778.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417180804778.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Võ Nguyên Giáp
-                              - Vị tướng của nhân dân / Vo Nguyên Giap - Général
-                              du Peuple (Song ngữ Việt - Pháp)</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="&nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;">
-                              &nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              84.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-      <div class="owl-item" style="width: 200.333px;">
-          <div class="content__item position-relative"><a
-                  href="/vo-nguyen-giap-vi-tuong-cua-nhan-dan-song-ngu-viet-tay-ban-nha-vo-nguyen-giap-el-general-del-pueblo-en-dos-idiomas-vietnamita-y-español-b12586.html"
-                  title="Võ Nguyên Giáp - Vị tướng của nhân dân (Song ngữ Việt - Tây Ban Nha) Vo Nguyen Giap - el General del pueblo (en dos idiomas vietnamita y español)"
-                  onclick="tracking(12586)">
-                  <div class="owl-lazy bg-book-search bg-book-category bg-layout"
-                      data-src="https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417182441906.jpg"
-                      style="background-image:url('https://images.sachquocgia.vn/Thumbs/2024/4/17/image-20240417182441906.jpg');opacity:1">
-                  </div>
-                  <div
-                      class="content__item-infor d-flex flex-column justify-content-center">
-                      <div class="item__infor-title">
-                          <h6 class="h6-14 element-text mt-2 mb-0">Võ Nguyên Giáp
-                              - Vị tướng của nhân dân (Song ngữ Việt - Tây Ban
-                              Nha) Vo Nguyen Giap - el General del pueblo (en dos
-                              idiomas vietnamita y español)</h6>
-                      </div>
-                      <div class="item__infor-vote"><img
-                              src="/content/assets/images/golden-star-warriors.svg"
-                              style="width:75px;padding:5px"></div>
-                      <div class="item__infor-category">
-                          <p class="body-13"
-                              title="&nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;">
-                              &nbsp;PGS.TS. Vũ Trọng Lâm&nbsp;</p>
-                      </div>
-                      <div class="item__infor-price"><span
-                              class="h6-14 bold color-AA8B47">Chỉ từ
-                              84.000₫</span></div>
-                  </div>
-              </a></div>
-      </div>
-  </div>
-</div>
-<div class="owl-nav"><button type="button" role="presentation"
-      class="owl-prev disabled"><img
-          src="/Content/assets/images/typical-book/prev.svg"></button><button
-      type="button" role="presentation" class="owl-next"><img
-          src="/Content/assets/images/typical-book/next.svg"></button></div>
-<div class="owl-dots disabled"></div>

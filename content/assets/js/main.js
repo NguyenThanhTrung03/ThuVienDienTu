@@ -2389,3 +2389,12 @@ $(document).ready(function () {
     navText: ["‹", "›"], // Tùy chỉnh biểu tượng nút điều hướng
   });
 });
+
+// Lấy phần tử span
+const yearSpan = document.getElementById("currentYear");
+
+// Lấy năm hiện tại
+const currentYear = new Date().getFullYear();
+
+// Hiển thị năm vào span
+yearSpan.textContent = currentYear;
